@@ -1,7 +1,54 @@
 <!DOCTYPE html>
-<html>
-  <body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Amsa</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #101114;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    main { padding: 24px; }
+
+    h1 { font-size: 38px; }
+
+    p { color: #b8bac3; }
+
+    .start {
+      display: inline-block;
+      margin: 24px 0;
+      padding: 14px 42px;
+      background: white;
+      color: #101114;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .links a {
+      color: #c5c7d0;
+      margin: 0 12px;
+    }
+  </style>
+</head>
+<body>
+  <main>
     <h1>Welcome to Amsa</h1>
-    <p>My first Git practice.</p>
-  </body>
+    <p>Your learning journey starts here.</p>
+    <a class="start" href="#signup">Get Started</a>
+    <div class="links" id="signup">
+      <a href="#signup">Sign Up</a>
+      <a href="#login">Log In</a>
+    </div>
+  </main>
+</body>
 </html>
