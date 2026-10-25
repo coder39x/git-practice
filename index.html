@@ -1,247 +1,392 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to Amsa</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #101114;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
 
-    main { padding: 24px; }
-
-    h1 { font-size: 38px; }
-
-    p { color: #b8bac3; }
-
-    .start {
-      display: inline-block;
-      margin: 24px 0;
-      padding: 14px 42px;
-      background: white;
-      color: #101114;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .links a {
-      color: #c5c7d0;
-      margin: 0 12px;
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>Welcome to Amsa</h1>
-    <p>Your learning journey starts here.</p>
-    <a class="start" href="#signup">Get Started</a>
-    <div class="links" id="signup">
-      <a href="#signup">Sign Up</a>
-      <a href="#login">Log In</a>
-    </div>
-  </main>
-</html>
-<img src="file_000000007d0081f49211487c19cf10ef.png" alt="Amsa logo" class="logo">
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f4f8ff">
+  <meta name="theme-color" content="#b8ddff">
   <title>Welcome to AMSA</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --ink: #0a1f5c;
-      --muted: #4a6296;
-      --blue: #2563eb;
-      --blue-top: #3b7bff;
-      --blue-dark: #1d4ed8;
-      --sky: #d6e6ff;
-      --sky-hover: #c3dbff;
-      --sky-text: #1b3a9c;
-      --font-head: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --ink: #10265e;
+      --muted: #48648e;
+      --blue: #1764f5;
+      --purple: #743cff;
+      --pink: #f04fbd;
+      --font-head: "Poppins", sans-serif;
+      --font-body: "Inter", sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
 
     body {
+      min-height: 100vh;
       font-family: var(--font-body);
       color: var(--ink);
-      background: #ffffff;
       -webkit-font-smoothing: antialiased;
     }
 
     .welcome {
       position: relative;
+      isolation: isolate;
+      min-height: 100vh;
       min-height: 100dvh;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
-      overflow: hidden;
-      background: radial-gradient(120% 70% at 50% 0%, #eaf2ff 0%, #f8fbff 55%, #ffffff 100%);
-      padding: max(32px, env(safe-area-inset-top)) 24px max(32px, env(safe-area-inset-bottom));
+      padding:
+        max(35px, env(safe-area-inset-top))
+        22px
+        max(32px, env(safe-area-inset-bottom));
+
+      background:
+        radial-gradient(ellipse at 15% 15%,
+          rgba(255,255,255,.95), transparent 37%),
+        radial-gradient(ellipse at 88% 24%,
+          rgba(255,255,255,.82), transparent 34%),
+        radial-gradient(ellipse at 48% 55%,
+          rgba(222,241,255,.95), transparent 52%),
+        linear-gradient(180deg,
+          #a8d4ff 0%,
+          #d2eaff 35%,
+          #eaf5ff 66%,
+          #dbeaff 100%);
     }
 
-    /* ---------- Rainbow watermark ---------- */
+    /* Soft cloud shapes, drawn entirely with CSS */
+    .cloud {
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+      border-radius: 100px;
+      background: rgba(255,255,255,.62);
+      filter: blur(2px);
+      box-shadow:
+        25px -17px 0 4px rgba(255,255,255,.48),
+        53px -4px 0 9px rgba(255,255,255,.38),
+        78px 5px 0 0 rgba(255,255,255,.28);
+      animation: drift 22s ease-in-out infinite alternate;
+    }
+
+    .cloud-one {
+      width: 85px;
+      height: 28px;
+      top: 10%;
+      left: -12px;
+    }
+
+    .cloud-two {
+      width: 110px;
+      height: 34px;
+      top: 27%;
+      right: 4%;
+      opacity: .65;
+      animation-delay: -8s;
+    }
+
+    .cloud-three {
+      width: 75px;
+      height: 25px;
+      top: 48%;
+      left: 5%;
+      opacity: .55;
+      animation-delay: -12s;
+    }
+
+    .cloud-four {
+      width: 95px;
+      height: 29px;
+      top: 7%;
+      right: 13%;
+      opacity: .5;
+      animation-delay: -4s;
+    }
+
+    .sun-glow {
+      position: absolute;
+      z-index: -1;
+      top: 8%;
+      left: 50%;
+      width: 310px;
+      height: 310px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: rgba(255,255,255,.32);
+      filter: blur(55px);
+      pointer-events: none;
+    }
+
+    /* Rainbow artwork: no external image required */
     .rainbow {
       position: absolute;
+      z-index: -1;
+      bottom: -1px;
       left: 50%;
-      bottom: 0;
-      width: min(175vw, 1100px);
+      width: max(125%, 500px);
+      max-width: 1000px;
+      height: auto;
       transform: translateX(-50%);
       pointer-events: none;
-      z-index: 0;
     }
+
+    .rainbow-glow {
+      opacity: .42;
+      filter: blur(19px);
+    }
+
+    .rainbow-colours {
+      opacity: .55;
+    }
+
     .rainbow path {
       fill: none;
-      stroke-width: 24;
-      stroke-dasharray: 1;
-      stroke-dashoffset: 1;
-      animation: draw 1.2s cubic-bezier(0.22, 0.8, 0.2, 1) forwards;
-      animation-delay: calc(var(--i) * 90ms);
+      stroke-width: 25;
+      stroke-linecap: round;
     }
-    .rainbow.crisp { opacity: 0.22; }
-    .rainbow.glow  { opacity: 0.3; filter: blur(22px); }
 
-    /* ---------- Content ---------- */
     .hero {
       position: relative;
       z-index: 1;
+      width: 100%;
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 18px;
-      max-width: 460px;
-      opacity: 0;
-      animation: rise 0.8s ease-out 0.6s forwards;
+      gap: 16px;
+      padding: 35px 0 28px;
+      animation: appear .8s ease-out both;
     }
 
     .logo {
-      width: 88px;
-      height: 88px;
+      display: block;
+      width: 96px;
+      height: 96px;
       object-fit: contain;
-      filter: drop-shadow(0 12px 22px rgba(37, 99, 235, 0.28));
+      filter: drop-shadow(0 10px 22px rgba(24,88,230,.25));
     }
 
     h1 {
+      width: 100%;
+      white-space: nowrap;
       font-family: var(--font-head);
-      font-weight: 700;
-      font-size: clamp(2.4rem, 10vw, 3.6rem);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      text-wrap: balance;
+      font-size: clamp(1.55rem, 6.5vw, 3.3rem);
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -.055em;
+      color: #10265e;
+      text-shadow: 0 2px 0 rgba(255,255,255,.35);
     }
 
     .tagline {
-      font-family: var(--font-body);
+      font-size: clamp(.95rem, 3.7vw, 1.12rem);
+      line-height: 1.6;
       font-weight: 500;
-      font-size: 1.15rem;
-      letter-spacing: -0.005em;
-      color: var(--muted);
+      color: #405d87;
+      letter-spacing: .01em;
+      margin-top: -7px;
     }
 
     .actions {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       width: 100%;
-      max-width: 380px;
+      max-width: 390px;
       display: grid;
-      gap: 12px;
-      opacity: 0;
-      animation: rise 0.8s ease-out 0.78s forwards;
+      gap: 15px;
+      padding-bottom: clamp(20px, 5vh, 55px);
+      animation: appear .8s ease-out .2s both;
     }
 
     .btn {
+      position: relative;
+      isolation: isolate;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 56px;
-      border-radius: 16px;
-      font-family: var(--font-body);
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: -0.005em;
+      min-height: 60px;
+      padding: 15px 22px;
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: 18px;
       text-decoration: none;
-      transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .01em;
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .btn:active { transform: translateY(1px); }
-    .btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(
+        110deg,
+        transparent 15%,
+        rgba(255,255,255,.3) 45%,
+        transparent 70%
+      );
+      transform: translateX(-110%);
+      transition: transform .6s ease;
+    }
+
+    .btn:hover::before {
+      transform: translateX(110%);
+    }
+
+    .btn:active {
+      transform: scale(.98);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 4px;
+    }
 
     .signup {
-      color: #ffffff;
-      background: linear-gradient(180deg, var(--blue-top), var(--blue));
+      color: white;
+      background: linear-gradient(120deg, #2477ff, #3454f5 52%, #783eff);
       box-shadow:
-        0 14px 28px -10px rgba(37, 99, 235, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+        0 12px 28px rgba(40,94,244,.35),
+        inset 0 1px 0 rgba(255,255,255,.4);
     }
+
     .signup:hover {
-      background: linear-gradient(180deg, var(--blue), var(--blue-dark));
-      box-shadow:
-        0 16px 30px -10px rgba(29, 78, 216, 0.65),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      box-shadow: 0 16px 34px rgba(40,94,244,.48);
+      transform: translateY(-2px);
     }
 
     .login {
-      color: var(--sky-text);
-      background: var(--sky);
-      box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.16);
+      color: #173c9b;
+      background: linear-gradient(120deg,
+        rgba(255,255,255,.92),
+        rgba(210,230,255,.96));
+      box-shadow:
+        0 10px 24px rgba(51,105,200,.16),
+        inset 0 1px 0 white;
+      border-color: rgba(255,255,255,.8);
     }
-    .login:hover { background: var(--sky-hover); }
 
-    /* ---------- One page-load sequence ---------- */
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: none; }
+    .login:hover {
+      box-shadow: 0 13px 28px rgba(51,105,200,.24);
+      transform: translateY(-2px);
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes drift {
+      from { translate: -8px 0; }
+      to { translate: 18px 5px; }
+    }
+
+    @media (min-width: 600px) {
+      .welcome {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+
+      .hero {
+        gap: 21px;
+      }
+
+      .logo {
+        width: 112px;
+        height: 112px;
+      }
+
+      h1 {
+        font-size: clamp(2.4rem, 5vw, 3.5rem);
+      }
+
+      .actions {
+        padding-bottom: 50px;
+      }
+    }
+
+    @media (max-width: 340px) {
+      .welcome {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      h1 {
+        font-size: 1.45rem;
+        letter-spacing: -.06em;
+      }
+
+      .logo {
+        width: 78px;
+        height: 78px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .rainbow path { animation: none; stroke-dashoffset: 0; }
-      .hero, .actions { animation: none; opacity: 1; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
+
 <body>
   <main class="welcome">
+    <div class="sun-glow" aria-hidden="true"></div>
+    <div class="cloud cloud-one" aria-hidden="true"></div>
+    <div class="cloud cloud-two" aria-hidden="true"></div>
+    <div class="cloud cloud-three" aria-hidden="true"></div>
+    <div class="cloud cloud-four" aria-hidden="true"></div>
 
-    <!-- Rainbow watermark: soft glow layer + crisp layer (decorative) -->
-    <svg class="rainbow glow" viewBox="0 0 400 200" aria-hidden="true" focusable="false">
-      <path pathLength="1" style="--i:0" d="M24 200 A176 176 0 0 1 376 200" stroke="#ff4d4f"/>
-      <path pathLength="1" style="--i:1" d="M48 200 A152 152 0 0 1 352 200" stroke="#ff9f1c"/>
-      <path pathLength="1" style="--i:2" d="M72 200 A128 128 0 0 1 328 200" stroke="#ffd23f"/>
-      <path pathLength="1" style="--i:3" d="M96 200 A104 104 0 0 1 304 200" stroke="#3ddc84"/>
-      <path pathLength="1" style="--i:4" d="M120 200 A80 80 0 0 1 280 200" stroke="#3b82f6"/>
-      <path pathLength="1" style="--i:5" d="M144 200 A56 56 0 0 1 256 200" stroke="#8b5cf6"/>
+    <svg class="rainbow rainbow-glow"
+         viewBox="0 0 400 200"
+         aria-hidden="true">
+      <path d="M24 200 A176 176 0 0 1 376 200" stroke="#ff5268"/>
+      <path d="M48 200 A152 152 0 0 1 352 200" stroke="#ff9f43"/>
+      <path d="M72 200 A128 128 0 0 1 328 200" stroke="#ffe15b"/>
+      <path d="M96 200 A104 104 0 0 1 304 200" stroke="#51dba0"/>
+      <path d="M120 200 A80 80 0 0 1 280 200" stroke="#5295ff"/>
+      <path d="M144 200 A56 56 0 0 1 256 200" stroke="#aa83ff"/>
     </svg>
-    <svg class="rainbow crisp" viewBox="0 0 400 200" aria-hidden="true" focusable="false">
-      <path pathLength="1" style="--i:0" d="M24 200 A176 176 0 0 1 376 200" stroke="#ff4d4f"/>
-      <path pathLength="1" style="--i:1" d="M48 200 A152 152 0 0 1 352 200" stroke="#ff9f1c"/>
-      <path pathLength="1" style="--i:2" d="M72 200 A128 128 0 0 1 328 200" stroke="#ffd23f"/>
-      <path pathLength="1" style="--i:3" d="M96 200 A104 104 0 0 1 304 200" stroke="#3ddc84"/>
-      <path pathLength="1" style="--i:4" d="M120 200 A80 80 0 0 1 280 200" stroke="#3b82f6"/>
-      <path pathLength="1" style="--i:5" d="M144 200 A56 56 0 0 1 256 200" stroke="#8b5cf6"/>
+
+    <svg class="rainbow rainbow-colours"
+         viewBox="0 0 400 200"
+         aria-hidden="true">
+      <path d="M24 200 A176 176 0 0 1 376 200" stroke="#ff5268"/>
+      <path d="M48 200 A152 152 0 0 1 352 200" stroke="#ff9f43"/>
+      <path d="M72 200 A128 128 0 0 1 328 200" stroke="#ffe15b"/>
+      <path d="M96 200 A104 104 0 0 1 304 200" stroke="#51dba0"/>
+      <path d="M120 200 A80 80 0 0 1 280 200" stroke="#5295ff"/>
+      <path d="M144 200 A56 56 0 0 1 256 200" stroke="#aa83ff"/>
     </svg>
 
     <section class="hero">
-      <!-- Save your real logo next to this file as amsa-logo.png. If it's missing, nothing shows. -->
-      <img class="logo" src="amsa-logo.png" alt="AMSA logo" onerror="this.remove()">
+      <img
+        class="logo"
+        src="amsa-logo.png"
+        alt="AMSA logo"
+        onerror="this.style.display='none'"
+      >
+
       <h1>Welcome to AMSA</h1>
       <p class="tagline">Your learning gateway</p>
     </section>
@@ -250,7 +395,6 @@
       <a class="btn signup" href="/signup">Sign up</a>
       <a class="btn login" href="/login">Log in</a>
     </nav>
-
   </main>
 </body>
 </html>
