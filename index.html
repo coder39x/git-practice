@@ -52,3 +52,205 @@
   </main>
 </html>
 <img src="file_000000007d0081f49211487c19cf10ef.png" alt="Amsa logo" class="logo">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f8ff">
+  <title>Welcome to AMSA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0a1f5c;
+      --muted: #4a6296;
+      --blue: #2563eb;
+      --blue-top: #3b7bff;
+      --blue-dark: #1d4ed8;
+      --sky: #d6e6ff;
+      --sky-hover: #c3dbff;
+      --sky-text: #1b3a9c;
+      --font-head: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .welcome {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      background: radial-gradient(120% 70% at 50% 0%, #eaf2ff 0%, #f8fbff 55%, #ffffff 100%);
+      padding: max(32px, env(safe-area-inset-top)) 24px max(32px, env(safe-area-inset-bottom));
+    }
+
+    /* ---------- Rainbow watermark ---------- */
+    .rainbow {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: min(175vw, 1100px);
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .rainbow path {
+      fill: none;
+      stroke-width: 24;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: draw 1.2s cubic-bezier(0.22, 0.8, 0.2, 1) forwards;
+      animation-delay: calc(var(--i) * 90ms);
+    }
+    .rainbow.crisp { opacity: 0.22; }
+    .rainbow.glow  { opacity: 0.3; filter: blur(22px); }
+
+    /* ---------- Content ---------- */
+    .hero {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 18px;
+      max-width: 460px;
+      opacity: 0;
+      animation: rise 0.8s ease-out 0.6s forwards;
+    }
+
+    .logo {
+      width: 88px;
+      height: 88px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 22px rgba(37, 99, 235, 0.28));
+    }
+
+    h1 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: clamp(2.4rem, 10vw, 3.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+
+    .tagline {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 1.15rem;
+      letter-spacing: -0.005em;
+      color: var(--muted);
+    }
+
+    .actions {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 380px;
+      display: grid;
+      gap: 12px;
+      opacity: 0;
+      animation: rise 0.8s ease-out 0.78s forwards;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      border-radius: 16px;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      text-decoration: none;
+      transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+    .signup {
+      color: #ffffff;
+      background: linear-gradient(180deg, var(--blue-top), var(--blue));
+      box-shadow:
+        0 14px 28px -10px rgba(37, 99, 235, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    }
+    .signup:hover {
+      background: linear-gradient(180deg, var(--blue), var(--blue-dark));
+      box-shadow:
+        0 16px 30px -10px rgba(29, 78, 216, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .login {
+      color: var(--sky-text);
+      background: var(--sky);
+      box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.16);
+    }
+    .login:hover { background: var(--sky-hover); }
+
+    /* ---------- One page-load sequence ---------- */
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .rainbow path { animation: none; stroke-dashoffset: 0; }
+      .hero, .actions { animation: none; opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <main class="welcome">
+
+    <!-- Rainbow watermark: soft glow layer + crisp layer (decorative) -->
+    <svg class="rainbow glow" viewBox="0 0 400 200" aria-hidden="true" focusable="false">
+      <path pathLength="1" style="--i:0" d="M24 200 A176 176 0 0 1 376 200" stroke="#ff4d4f"/>
+      <path pathLength="1" style="--i:1" d="M48 200 A152 152 0 0 1 352 200" stroke="#ff9f1c"/>
+      <path pathLength="1" style="--i:2" d="M72 200 A128 128 0 0 1 328 200" stroke="#ffd23f"/>
+      <path pathLength="1" style="--i:3" d="M96 200 A104 104 0 0 1 304 200" stroke="#3ddc84"/>
+      <path pathLength="1" style="--i:4" d="M120 200 A80 80 0 0 1 280 200" stroke="#3b82f6"/>
+      <path pathLength="1" style="--i:5" d="M144 200 A56 56 0 0 1 256 200" stroke="#8b5cf6"/>
+    </svg>
+    <svg class="rainbow crisp" viewBox="0 0 400 200" aria-hidden="true" focusable="false">
+      <path pathLength="1" style="--i:0" d="M24 200 A176 176 0 0 1 376 200" stroke="#ff4d4f"/>
+      <path pathLength="1" style="--i:1" d="M48 200 A152 152 0 0 1 352 200" stroke="#ff9f1c"/>
+      <path pathLength="1" style="--i:2" d="M72 200 A128 128 0 0 1 328 200" stroke="#ffd23f"/>
+      <path pathLength="1" style="--i:3" d="M96 200 A104 104 0 0 1 304 200" stroke="#3ddc84"/>
+      <path pathLength="1" style="--i:4" d="M120 200 A80 80 0 0 1 280 200" stroke="#3b82f6"/>
+      <path pathLength="1" style="--i:5" d="M144 200 A56 56 0 0 1 256 200" stroke="#8b5cf6"/>
+    </svg>
+
+    <section class="hero">
+      <!-- Save your real logo next to this file as amsa-logo.png. If it's missing, nothing shows. -->
+      <img class="logo" src="amsa-logo.png" alt="AMSA logo" onerror="this.remove()">
+      <h1>Welcome to AMSA</h1>
+      <p class="tagline">Your learning gateway</p>
+    </section>
+
+    <nav class="actions" aria-label="Get started">
+      <a class="btn signup" href="/signup">Sign up</a>
+      <a class="btn login" href="/login">Log in</a>
+    </nav>
+
+  </main>
+</body>
+</html>
